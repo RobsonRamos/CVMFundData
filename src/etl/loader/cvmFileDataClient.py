@@ -42,7 +42,7 @@ class CVMFileDataClient:
 
         return downloadDict
 
-    async def downloadFile(self, path, fileName, url, semaphore):
+    async def downloadFile(self, path, fileName, url, semaphore, retryIfError = True):
         async with semaphore:
             print('downloading: ' + fileName + '.csv')    
             
@@ -58,4 +58,7 @@ class CVMFileDataClient:
                         else:
                             print(resp)   
             except Exception as e:
-                print(e)
+                print('Error downloading file: ' + fileName + '.csv')
+                if retryIfError:
+                    print('Trying to download again...')
+                    await self.downloadFile(path, fileName, url, semaphore, False)

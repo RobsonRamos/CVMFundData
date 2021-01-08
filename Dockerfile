@@ -7,7 +7,9 @@ WORKDIR /app
 # # Copy everything which is present in my docker directory to working (/app)
 COPY /requirements.txt /app
 
-RUN pip install -r requirements.txt
+RUN apk add gcc libc-dev
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
 
 COPY src /app
 

@@ -26,7 +26,7 @@ class FundDailyData:
     
     def to_json(self):
         return { 
-            "cpnj": self.taxId,
+            "cnpj": self.taxId,
             "quoteDate": self.quoteDate,
             "portfolioValue" : self.portfolioValue,
             "quoteValue" : self.quoteValue,
