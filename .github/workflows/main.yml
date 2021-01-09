@@ -1,4 +1,4 @@
-name: Tests
+name: Github Default Action
 
 on:
   push: 
@@ -9,6 +9,7 @@ on:
     paths-ignore: 
     branches:
       - '**'
+
 
 jobs:
   tests:
@@ -35,11 +36,7 @@ jobs:
         shell: bash
         run: |
           python -m ensurepip
-          python -m pip install --upgrade pip 
-      
-      - name: Install dependencies
-        shell: bash
-        run: apt-get install gcc libc-dev
+          python -m pip install --upgrade pip  
 
       - name: Install pip dependencies
         shell: bash
