@@ -1,3 +1,5 @@
+[![Tests Status] (https://github.com/RobsonRamos/CVMFundData/Workflows/action/badge.svg)]
+
 # CVM Data Funds
 
 CVM Data Funds is a project to help you get historical funda data from the CVM (Brazilian SEC entity).
