@@ -57,8 +57,10 @@ class CVMFileDataClient:
                             print(fileName + '.csv downloaded!')
                         else:
                             print(resp)   
-            except Exception as e:
+            except Exception:
                 print('Error downloading file: ' + fileName + '.csv')
                 if retryIfError:
                     print('Trying to download again...')
                     await self.downloadFile(path, fileName, url, semaphore, False)
+                else:
+                    raise

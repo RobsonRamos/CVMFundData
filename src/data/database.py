@@ -10,7 +10,7 @@ from pymongo import MongoClient, UpdateOne
 class Database:
 
     def createClient(self):
-        return MongoClient(host='localhost', port=27017)
+        return MongoClient(host='mongo_1', port=27017)
 
     def recreateDatabase(self):                   
         client = self.createClient()
@@ -45,9 +45,10 @@ class Database:
         except BulkWriteError as bwe:
             print(bwe.details)
 
-        except (Exception) as error:
+        except Exception:
+            print('Error getting data')
             traceback.print_exc()
-            print("Error while getting data from the database", error)
+            raise
     
     def insertData(self, fundsDict):
         
@@ -64,6 +65,7 @@ class Database:
                     bulk.insert(json)
 
             bulk.execute()
-        except Exception as error:
+        except Exception:
+            print('Erro saving data') 
             traceback.print_exc()
-            print("Error while inserting data to the database", error) 
+            raise

@@ -25,9 +25,7 @@ class FundFileReader:
 
         for file in files:
             try:
-                print('Reading file:' + path + file)
-
-                start = datetime.today()
+                print('Reading file:' + path + file) 
 
                 with open(path + file) as csv_file:
                     csv_reader = csv.reader(csv_file, delimiter=';')
@@ -64,15 +62,12 @@ class FundFileReader:
 
                     db.insertData(fundDict)
                     lastInfosOfCurrentMonth.clear()
-                    fundDict.clear()
-
-                end = datetime.today()
-
-                print('Tempo total de processamento')
-                print((end - start))  
+                    fundDict.clear()  
 
             except (Exception) as error:
+                print('Error reading file:' + path + file) 
                 traceback.print_exc() 
+                raise
                 
         return fundDict
 

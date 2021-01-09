@@ -11,18 +11,13 @@ class DataLoader:
 
     def loadData(self):
 
-        start = datetime.today()
-
+        start = datetime.today() 
         path = './etl/dataFiles/'
 
-        #client = CVMFileDataClient()
-        #client.startProcess(path) 
+        client = CVMFileDataClient()
+        client.startProcess(path) 
         
-        end = datetime.today()  
-        
-        print('Tempo Total download')
-        print((end - start))      
-        
+        end = datetime.today()   
         reader = FundFileReader()
         reader.parseFilesAndSave(path) 
 

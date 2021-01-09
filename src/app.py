@@ -4,8 +4,8 @@ from api.startup import Startup
 
 class App:
     try:
-        #loader = DataLoader()
-        #loader.loadData()
+        loader = DataLoader()
+        loader.loadData()
 
         startup = Startup()
         startup.startAPI()  

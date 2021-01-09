@@ -41,4 +41,4 @@ class FundDataService(Resource):
          
         except:
             traceback.print_exc()
-            return Response(response="Looks like something went wrong :(", status=500)
+            return Response(response="Internal server error", status=500)
