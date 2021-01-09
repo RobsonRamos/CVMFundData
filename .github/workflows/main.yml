@@ -10,6 +10,7 @@ on:
     branches:
       - '**'
 
+
 jobs:
   tests:
     name: ${{ matrix.os }} / ${{ matrix.python-version }}
@@ -39,7 +40,7 @@ jobs:
       
       - name: Install dependencies
         shell: bash
-        run: apt-get install gcc libc-dev
+        run: sudo apt-get install gcc libc-dev
 
       - name: Install pip dependencies
         shell: bash
