@@ -39,7 +39,7 @@ jobs:
       
       - name: Install dependencies
         shell: bash
-        run: apk add gcc libc-dev
+        run: apt-get add gcc libc-dev
 
       - name: Install pip dependencies
         shell: bash
