@@ -3,25 +3,21 @@
 CVM Data Funds is a project to help you get historical funda data from the CVM (Brazilian SEC entity).
 
 
-## How to
+## How to execute the code
 
-run
--------
 
-.. code-block:: bash
-
+```python
    $ docker-compose build
    $ docker-compose up
+```
 
+## How to execute the tests 
 
-execute the tests
--------
-
-.. code-block:: bash
-
+```python
    $ cd src/
    $ python3 ...
 
+```
 
 ## Using the API
 
