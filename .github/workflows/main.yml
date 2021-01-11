@@ -44,7 +44,7 @@ jobs:
 
       - name: Enter src folder
         shell: bash
-        run: cd src
+        run: ls
 
       - name: Runt the tests
         shell: bash
