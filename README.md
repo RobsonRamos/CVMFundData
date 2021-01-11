@@ -35,7 +35,7 @@ http://localhost:5000/FundsDataService?cnpj=00017024000153&startDate=2017-02-02&
 
 ###  
 
-The API returns an object **result** containing the following informations:
+The API returns an object **data** containing the following informations:
 
 
  Field  | Description
