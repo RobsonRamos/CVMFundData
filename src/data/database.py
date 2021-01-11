@@ -38,9 +38,6 @@ class Database:
             result = db.FundsDailyData.find(specification, {'_id': False})
             result = { 'data': list(data for data in result)} 
             return result
-        
-        except BulkWriteError as bwe:
-            print(bwe.details)
 
         except Exception:
             print('Error getting data')

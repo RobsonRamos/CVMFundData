@@ -17,18 +17,36 @@ CVM Data Funds is a project to help you get historical funda data from the CVM (
 
 ```python
    $ cd src/
-   $ python3 ...
+   $ coverage run   -m unittest discover  -s ./tests && coverage
 
 ```
 
 ## Using the API
 
-When the ETL process finishs an API is exposed through the address ``localhost:5000/FundsDataService``
+When the ETL process finishs an API is exposed in the address ``localhost:5000/FundsDataService``
 
-To use the API its necessary to inform the following parameters:
+To use the API its necessary to execute a GET request (using the address above) containing the following parameters:
 - cnpj: Mandatory parameter 
 - startDate: Optional parameter (YYYY-MM-DD)
 - endDate: Optional parameter (YYYY-MM-DD)
 
-For example:
+### Sample request
 http://localhost:5000/FundsDataService?cnpj=00017024000153&startDate=2017-02-02&endDate=2019-02-10
+
+###  
+
+The API returns an object Result containing the following informations:
+
+
+ Field  | Description
+ ------ |   ---------------
+ cnpj  | Unique identifier of a fund
+ quoteDate  | date of record 
+ portfolioValue   | Total value of portfolio (NAV in BRL)
+ quoteValue   | Quote value
+ fundNetWorth  | Fund net worth (BRL)
+ investments  | Total investments of the day (BRL)
+ withdrawals  | Total withdrawals of the day (BRL)
+ numberOfInvestors  | Number of investors 
+ dailyReturn  | (Quote(t) / quote(t-1)) -1 
+

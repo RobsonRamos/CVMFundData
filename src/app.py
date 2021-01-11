@@ -5,7 +5,7 @@ from api.startup import Startup
 class App:
     try:
         loader = DataLoader()
-        loader.loadData(2017, 1)
+        loader.loadData(startYear = 2017, startMonth = 1)
 
         startup = Startup()
         startup.startAPI()  
