@@ -1,4 +1,4 @@
-![Github Default Action](https://github.com/RobsonRamos/CVMFundData/workflows/Github%20Default%20Action/badge.svg?branch=master)
+![Github Default Action](https://github.com/RobsonRamos/CVMFundData/workflows/Tests/badge.svg?branch=master)
 
 # CVM Data Funds
 
