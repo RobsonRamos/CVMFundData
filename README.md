@@ -35,7 +35,7 @@ http://localhost:5000/FundsDataService?cnpj=00017024000153&startDate=2017-02-02&
 
 ###  
 
-The API returns an object Result containing the following informations:
+The API returns an object **result** containing the following informations:
 
 
  Field  | Description
@@ -48,5 +48,5 @@ The API returns an object Result containing the following informations:
  investments  | Total investments of the day (BRL)
  withdrawals  | Total withdrawals of the day (BRL)
  numberOfInvestors  | Number of investors 
- dailyReturn  | (Quote(t) / quote(t-1)) -1 
+ dailyReturn  | (quote(t) / quote(t-1)) -1 
 
