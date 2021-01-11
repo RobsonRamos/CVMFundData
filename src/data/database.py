@@ -1,8 +1,6 @@
 import traceback
 import datetime 
-from pymongo.errors import BulkWriteError
-import sys
-sys.path.append('./domain/')
+from pymongo.errors import BulkWriteError 
 from domain.fundDailyData import FundDailyData
 from domain.fundDailyDataQuery import FundDailyDataQuery
 from pymongo import MongoClient, UpdateOne
@@ -38,8 +36,7 @@ class Database:
                     specification['quoteDate']['$lt'] = query.endDate
  
             result = db.FundsDailyData.find(specification, {'_id': False})
-            result = { 'data': list(data for data in result)}
-            print(result)
+            result = { 'data': list(data for data in result)} 
             return result
         
         except BulkWriteError as bwe:

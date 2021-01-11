@@ -9,13 +9,13 @@ from datetime import datetime
 
 class DataLoader:
 
-    def loadData(self):
+    def loadData(self, startYear, startMonth):
 
         start = datetime.today() 
         path = './etl/dataFiles/'
 
         client = CVMFileDataClient()
-        client.startProcess(path) 
+        client.startProcess(path, startYear, startMonth) 
         
         end = datetime.today()   
         reader = FundFileReader()

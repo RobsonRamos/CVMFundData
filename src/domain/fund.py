@@ -1,4 +1,4 @@
-from domain.fundDailyData import FundDailyData
+from .fundDailyData import FundDailyData
 from typing import List
 import json
 

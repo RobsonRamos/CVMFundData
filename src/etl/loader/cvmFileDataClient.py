@@ -7,9 +7,11 @@ import aiofiles
 
 class CVMFileDataClient:
 
-    def startProcess(self, path):
-            downloadDict = self.generateDownloadDict() 
-            asyncio.run(self.downloadAndSaveFiles(downloadDict, path)) 
+    def startProcess(self, path, startYear, startMonth): 
+            self.currentYear = startYear
+            self.currentMonth = startMonth
+            downloadDict = self.generateDownloadDict()
+            asyncio.run(self.downloadAndSaveFiles(downloadDict, path))
 
     async def downloadAndSaveFiles(self, downloadDict, path): 
         semaphore = asyncio.BoundedSemaphore(12) # number of async jobs
@@ -18,27 +20,25 @@ class CVMFileDataClient:
             jobs.append(asyncio.ensure_future(self.downloadFile(path, fileName, downloadDict[fileName], semaphore)))        
         await asyncio.gather(*jobs) 
 
-    def generateDownloadDict(self):      
-        currentYear = 2017
-        currentMonth = 1
+    def generateDownloadDict(self):   
         currentMonthStr = ''
         downloadDict = {}
 
-        while datetime(currentYear, currentMonth, 1) < datetime(datetime.today().year, datetime.today().month, 1):
-            if(currentMonth < 10):
-                currentMonthStr = '0' + str(currentMonth)
+        while datetime(self.currentYear, self.currentMonth, 1) < datetime(datetime.today().year, datetime.today().month, 1):
+            if(self.currentMonth < 10):
+                currentMonthStr = '0' + str(self.currentMonth)
             else:
-                currentMonthStr = str(currentMonth)
+                currentMonthStr = str(self.currentMonth)
             
-            yearMonth = str(currentYear) + currentMonthStr
+            yearMonth = str(self.currentYear) + currentMonthStr
             
             t = Template('http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/inf_diario_fi_${yearMonth}.csv')
             url = t.substitute(yearMonth=yearMonth) 
             downloadDict[yearMonth] = url #file name and URL
-            currentMonth+=1
-            if currentMonth > 12:
-                currentMonth = 1
-                currentYear+=1
+            self.currentMonth+=1
+            if self.currentMonth > 12:
+                self.currentMonth = 1
+                self.currentYear+=1
 
         return downloadDict
 
