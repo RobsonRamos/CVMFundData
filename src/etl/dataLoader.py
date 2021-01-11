@@ -22,5 +22,5 @@ class DataLoader:
         reader.parseFilesAndSave(path) 
 
         end = datetime.today()
-        print('Tempo Total')
+        print('Total time')
         print((end - start))  

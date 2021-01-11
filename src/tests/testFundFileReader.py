@@ -14,6 +14,7 @@ class TestFundFileReader(unittest.TestCase):
         reader = FundFileReader()
         fundDict,  _ = reader.parseFile(path, file)
         self.assertTrue(list(fundDict)[0] == '00017024000153')
+        self.assertTrue(list(fundDict)[1] == '00068305000135')
 
     def testCanParseDailyData(self):
         path = './tests/files/'

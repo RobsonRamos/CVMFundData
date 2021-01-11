@@ -5,7 +5,7 @@ from os.path import isfile, join
 import csv
 from etl.loader.cvmFileDataClient import CVMFileDataClient
 
-class testCVMFileDataClient(unittest.TestCase): 
+class TestCVMFileDataClient(unittest.TestCase): 
 
     def testCanDownloadSomeFile(self):
         path = './tests/dataFiles/'
